@@ -43,3 +43,9 @@ all: build/Makefile
 .PHONY: clean
 clean:
 	rm -rf build/
+
+.PHONY: run
+run:
+	sh ./start-testsuite.sh \
+		build/ETSI_S1AP_Tests \
+		cfg/ETSI_S1AP_Tests.cfg

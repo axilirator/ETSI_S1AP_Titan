@@ -82,7 +82,7 @@ function f_ASP_RecvFrom_To_S1AP_PDU(in ASP_RecvFrom asp, out S1AP_PDU pdu) {
  	pdu := dec_S1AP_PDU(asp.msg);
 	port.setstate(0);
 }with {extension "prototype(fast)" }
-/*
+
 function f_S1AP_PDU_To_octetstring(in S1AP_PDU pdu, out octetstring os){
   os := enc_S1AP_PDU(pdu);
 }with {extension "prototype(fast)" } 
@@ -91,7 +91,6 @@ function f_octetstring_To_S1AP_PDU(in octetstring os, out S1AP_PDU pdu) {
   	//decode asp here
  	pdu := dec_S1AP_PDU(os);
 }with {extension "prototype(fast)" }
-*/
 
 control {
   execute(TC_S1AP_eNB_RAB_01());
