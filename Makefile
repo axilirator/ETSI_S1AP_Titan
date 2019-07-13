@@ -25,7 +25,7 @@ deps:
 	cp src/TitanExtensions/S1APPort.hh build/
 
 build/Makefile:
-	sh ./regen-makefile.sh -o build \
+	sh ./regen-makefile.sh -o build -e ETSI_S1AP_Tests \
 		build/*.ttcn build/*.cc src/S1AP_EncDec.cc \
 		src/LibCommon/*.ttcn src/TitanExtensions/* \
 		src/LibS1AP/*.ttcn src/asn1/*.asn src/*.ttcn
