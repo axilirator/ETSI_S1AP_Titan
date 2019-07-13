@@ -26,11 +26,15 @@ deps:
 
 build/Makefile:
 	sh ./regen-makefile.sh -o build \
-		build/*.ttcn build/*.cc \
+		build/*.ttcn build/*.cc src/S1AP_EncDec.cc \
 		src/LibCommon/*.ttcn src/TitanExtensions/* \
 		src/LibS1AP/*.ttcn src/asn1/*.asn src/*.ttcn
 	# HACK: make build directory include directory
 	sed -i -e 's/^CPPFLAGS = \(.*\)/& -I./' build/Makefile
+	# TITAN does not support ASN.1 APER, so we use libfftranscode
+	# TODO: it should be also possible to use patched version
+	# of asn1c by Lev Walkin (https://github.com/vlm/asn1c)
+	sed -i -e 's/^LINUX_LIBS = \(.*\)/& -lfftranscode/' build/Makefile
 
 .PHONY: all
 all: build/Makefile
