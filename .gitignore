@@ -1,1 +1,4 @@
-/bin/
+build
+deps
+
+!deps/Makefile
